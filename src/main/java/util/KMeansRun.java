@@ -47,7 +47,17 @@ public class KMeansRun {
             //把得到的数据一个一个对应到 点上去
             float[] floats = original_data.get(i);
             // 把第一位的数字作为title
-            int title=(int) floats[0];
+            int title=(int) floats[4];
+
+            int ja = (int) floats[floats.length-1];
+            for(int k=floats.length-1;k>0;k--) {
+                floats[k]=floats[k-1];
+            }
+            for (int l = 0; l < floats.length; l++) {
+                floats[0]=ja;
+            }
+
+
             // 把title to floats 里面删掉
             float[] arrNew = new float[floats.length - 1];
             for (int p = 0  ; p < floats.length - 1; p++) {
@@ -58,6 +68,10 @@ public class KMeansRun {
 
 
         }
+        for (Point pointList:pointList) {
+            System.out.println(pointList);
+        }
+
     }
 
     /**

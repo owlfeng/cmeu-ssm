@@ -16,7 +16,12 @@ public class Point {
         this.title = title;
     }
 
-    public Point(int id, float[] localArray,int title) {
+
+    public Point() {
+    }
+
+
+    public Point(int id, float[] localArray, int title) {
         this.id = id;
         this.localArray = localArray;
         this.title=title;
@@ -57,7 +62,7 @@ public class Point {
         for (int i = 0; i < localArray.length; i++) {
             result += localArray[i] + " ";
         }
-        return result.trim()+"] clusterId: "+clusterId+" dist: "+dist;
+        return result.trim()+"] clusterId: "+clusterId+" dist: "+dist+" title: "+title;
     }
 
     @Override

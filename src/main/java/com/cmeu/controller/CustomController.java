@@ -141,26 +141,26 @@ public class CustomController {
 		double[][] arr3=new double[testlist.size()][5];
 		for(int i=0;i<arr3.length;i++)
 		{
-			for(int P=0; P<5; P++)
+			for(int P=0; P<4; P++)
 			{
 				if (P == 0){
-					arr3[i][P]=cuid.get(i);
-//					arr3[i][P]=T1.get(i);//
-				}else if (P==1){
+//					arr3[i][P]=cuid.get(i);
 					arr3[i][P]=T1.get(i);//
-//					arr3[i][P]=T2.get(i);
+				}else if (P==1){
+//					arr3[i][P]=T1.get(i);//
+					arr3[i][P]=T2.get(i);
 
 				}else if (P==2){
-					arr3[i][P]=T2.get(i);
-//					arr3[i][P]=T3.get(i);
+//					arr3[i][P]=T2.get(i);
+					arr3[i][P]=T3.get(i);
 
 				}else if (P==3){
-					arr3[i][P]=T3.get(i);
-//				arr3[i][P]=T4.get(i);
+//					arr3[i][P]=T3.get(i);
+				arr3[i][P]=T4.get(i);
 
 				}else if (P==4){
-					arr3[i][P]=T4.get(i);
-//					arr3[i][P]=cuid.get(i);
+//					arr3[i][P]=T4.get(i);
+					arr3[i][P]=cuid.get(i);
 				}
 
 
@@ -168,19 +168,14 @@ public class CustomController {
 		}
 		//	进行z-score 处理
 		double[][] doubles = zcUtil.normalize4ZScore(arr3);
-//		for (int k = 0; k < doubles.length; k++) {
-//			for(int P=0; P<5; P++)
-//			{
-//				if (P == 4){
-//					arr3[k][P]=cuid.get(k);//
-//				}
-//			}
-//		}
+		for (int u = 0; u < doubles.length; u++) {
+			doubles[u][4] = cuid.get(u);
+		}
 
 		//将标准化处理后数据放进集合  下一步进行k-means
-		for (int k = 0; k<doubles[0].length; k++) {
+		for (int k = 0; k<doubles.length; k++) {
 			float aa;
-			float[] bb=new float[doubles.length];
+			float[] bb=new float[5];
 			for (int i = 0; i < 5; i++)
 			{
 			aa=(float) doubles[k][i];
@@ -202,6 +197,7 @@ public class CustomController {
 		//得到簇
 		for (Cluster cluster : clusterSet) {
 			localArray.add(	cluster.getCenter().getlocalArray());
+
 			float[] floats = cluster.getCenter().getlocalArray();
 			FRMModel frmModels1 = new FRMModel(cluster.getCenter().getTitle(),floats[0],floats[1],floats[2],floats[3]);
 			frmModels.add(frmModels1);
