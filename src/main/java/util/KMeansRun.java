@@ -69,7 +69,7 @@ public class KMeansRun {
 
         }
         for (Point pointList:pointList) {
-            System.out.println(pointList);
+                System.out.println(pointList);
         }
 
     }

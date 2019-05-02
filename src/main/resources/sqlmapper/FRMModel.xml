@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmeu.mapper.FRMMapper">
+
+    <select id="list" resultType="com.cmeu.pojo.FRMModel" >
+        select  * from frm_model
+    </select>
+
+    <insert id="save" parameterType="com.cmeu.pojo.FRMModel">
+        INSERT INTO frm_model(initiation,frequency,monetary,recency,center_id) VALUES(#{initiation},#{frequency},#{monetary},#{recency},#{cid})
+	</insert>
+
+
+
+
+
+</mapper>
