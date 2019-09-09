@@ -11,5 +11,4 @@ import java.util.List;
 public interface FRMMapper {
     List<FRMModel> list();
     void save(FRMModel frmModel);
-
 }

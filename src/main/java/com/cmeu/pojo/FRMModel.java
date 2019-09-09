@@ -6,23 +6,21 @@ import java.io.Serializable;
  * @author fudada
  * @date 2019/4/26 - 15:46
  */
-public class FRMModel implements Serializable,Comparable<FRMModel> {
-    private  int id; //用户id 用户组id
-    private  Float initiation; //入户时常
-    private  Float frequency;//频率
-    private  Float monetary;//总金额
-    private  Float recency;//最后一次购买时间
-    private  int weight = 0 ;//
-    private  float[] floats;
-    private  int cid;
-
-
+public class FRMModel implements Serializable, Comparable<FRMModel> {
+    private int id; //用户id 用户组id
+    private Float initiation; //入户时常
+    private Float frequency;//频率
+    private Float monetary;//总金额
+    private Float recency;//最后一次购买时间
+    private int weight = 0;//
+    private float[] floats;
+    private int cid;
 
 
     public FRMModel() {
     }
 
-    public FRMModel(Float initiation, Float frequency, Float monetary, Float recency,int cid) {
+    public FRMModel(Float initiation, Float frequency, Float monetary, Float recency, int cid) {
         this.initiation = initiation;
         this.frequency = frequency;
         this.monetary = monetary;
@@ -49,16 +47,17 @@ public class FRMModel implements Serializable,Comparable<FRMModel> {
     public void setFloats(float[] floats) {
         this.floats = floats;
     }
+
     public float[] getFloats() {
         return floats;
     }
 
-    public void setFloats(Float initiation,Float frequency,Float monetary, Float recency) {
-        this.floats=new float[4];
-        this.floats[0]=initiation;
-        this.floats[1]=frequency;
-        this.floats[2]=monetary;
-        this.floats[3]=recency;
+    public void setFloats(Float initiation, Float frequency, Float monetary, Float recency) {
+        this.floats = new float[4];
+        this.floats[0] = initiation;
+        this.floats[1] = frequency;
+        this.floats[2] = monetary;
+        this.floats[3] = recency;
     }
 
     public int getId() {
@@ -113,19 +112,19 @@ public class FRMModel implements Serializable,Comparable<FRMModel> {
     public int compare(FRMModel o) {
         System.out.println(o.getId());
         //
-        if((this.initiation >= o.getInitiation())){
-            this.weight=getWeight()+1;
+        if ((this.initiation >= o.getInitiation())) {
+            this.weight = getWeight() + 1;
         }
-        if((this.frequency >= o.getFrequency())){
-            this.weight=getWeight()+7;
-        }
-
-        if((this.monetary >= o.getMonetary())){
-            this.weight=getWeight()+10;
+        if ((this.frequency >= o.getFrequency())) {
+            this.weight = getWeight() + 7;
         }
 
-        if((this.recency >= o.getRecency())){
-            this.weight=getWeight()+2;
+        if ((this.monetary >= o.getMonetary())) {
+            this.weight = getWeight() + 10;
+        }
+
+        if ((this.recency >= o.getRecency())) {
+            this.weight = getWeight() + 2;
         }
         return 0;
     }
@@ -145,7 +144,7 @@ public class FRMModel implements Serializable,Comparable<FRMModel> {
     @Override
     public int compareTo(FRMModel o) {
         // compareTo 0 -1 1
-        return  this.weight-o.getWeight();
+        return this.weight - o.getWeight();
     }
 }
 

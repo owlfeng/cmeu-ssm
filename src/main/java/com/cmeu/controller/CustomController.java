@@ -314,7 +314,7 @@ public class CustomController {
         Set<Cluster> clusterSet = kRun.run();
         //save user
         frmService.save(clusterSet);
-        //得到簇 并进行操作
+        //得到簇 数组转集合
         int p = 0;
         for (Cluster cluster : clusterSet) {
             List<Point> members = cluster.getMembers();

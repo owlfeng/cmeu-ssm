@@ -38,7 +38,6 @@ public class CareController  {
 	DataTable<Care> care_query(String draw) throws Exception{
 		//取得客户关怀数据列表
 		List<Care> queryList = careService.testList();
-		
 		//声明一个datatable对象封装数据
 		DataTable<Care> data = new DataTable<Care>();
 		data.setDraw(Integer.parseInt(draw == null ? "0": draw) + 1);
